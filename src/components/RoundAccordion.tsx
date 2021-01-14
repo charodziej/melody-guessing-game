@@ -116,6 +116,7 @@ export default function RoundAccordion({
                                         (file) => ({
                                             name: file.name,
                                             valueUrl: URL.createObjectURL(file),
+                                            type: file.type,
                                         })
                                     ),
                                 ],

@@ -92,7 +92,7 @@ export function NewGameScreen({}: Props): ReactElement {
             <Button
                 variant="contained"
                 color="primary"
-                onClick={() => setView(ViewType.welcome)}
+                onClick={() => setView(ViewType.gameRunning)}
             >
                 Start game
             </Button>

@@ -8,7 +8,7 @@ import {
 } from '@material-ui/core'
 import { orange, red } from '@material-ui/core/colors'
 import { createGenericContext } from 'utils'
-import { WelcomeScreen, NewGameScreen } from './screens'
+import { WelcomeScreen, NewGameScreen, GameRunningScreen } from './screens'
 import { ArrowBack as ArrowBackIcon } from '@material-ui/icons'
 import { Round, ViewType } from 'types'
 
@@ -53,18 +53,20 @@ export default function App(): ReactElement {
                     <div className={classes.main}>
                         <CssBaseline />
 
-                        {view !== ViewType.welcome && (
-                            <Button
-                                className={classes.backButton}
-                                variant="contained"
-                                onClick={() => setView(ViewType.welcome)}
-                            >
-                                <ArrowBackIcon fontSize="small" />
-                                Home
-                            </Button>
-                        )}
+                        {view !== ViewType.welcome &&
+                            view !== ViewType.gameRunning && (
+                                <Button
+                                    className={classes.backButton}
+                                    variant="contained"
+                                    onClick={() => setView(ViewType.welcome)}
+                                >
+                                    <ArrowBackIcon fontSize="small" />
+                                    Home
+                                </Button>
+                            )}
                         {view === ViewType.welcome && <WelcomeScreen />}
                         {view === ViewType.newGame && <NewGameScreen />}
+                        {view === ViewType.gameRunning && <GameRunningScreen />}
                     </div>
                 </RoundContextProvider>
             </ViewContextProvider>
